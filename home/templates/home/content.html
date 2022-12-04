@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Đăng nhập thành công</h1>
+
+    <table>
+        <tr>
+            <th>id</th>
+            <th>ip</th>
+            <th>hostname</th>
+            <th>branch</th>
+            <th>zone</th>
+            <th>pop</th>
+            <th>type</th>
+            <th>function</th>
+            <th>model</th>
+            <th>province</th>
+            <th>total_mac</th>
+            <th>smart_link</th>
+            <th>sep</th>
+            <th>stack</th>
+            <th>number_of_pop_tail</th>
+            <th>patch_ver</th>
+            <th>patch_state</th>
+            <th>software_ver</th>
+            <th>switch_type</th>
+        </tr>
+
+        {% for data in page_obj %}
+            <tr>
+                <td>{{data.id}}</td>
+                <td>{{data.ip}}</td>
+                <td>{{data.hostname}}</td>
+                <td>{{data.branch}}</td>
+                <td>{{data.zone}}</td>
+                <td>{{data.pop}}</td>
+                <td>{{data.type}}</td>
+                <td>{{data.function}}</td>
+                <td>{{data.model}}</td>
+                <td>{{data.province}}</td>
+                <td>{{data.total_mac}}</td>
+                <td>{{data.smart_link}}</td>
+                <td>{{data.sep}}</td>
+                <td>{{data.stack}}</td>
+                <td>{{data.number_of_pop_tail}}</td>
+                <td>{{data.patch_ver}}</td>
+                <td>{{data.patch_state}}</td>
+                <td>{{data.software_ver}}</td>
+                <td>{{data.switch_type}}</td>
+                <td>
+                    <a href="/content/{{ data.id }}">Change</a>
+                </td>
+                <td>
+                    <a href="/delete/{{ data.id }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="/add_content/">Add</a>
+    <br>
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    <br>
+    <form action="{% url 'home:logout' %}", method="post" >
+        {% csrf_token %}
+        <input type="submit" value="Logout" style="color: red">
+    </form>
+</body>
+</html>

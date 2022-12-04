@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="{% url 'home:add_content' %}" method="post">
+      {% csrf_token %}
+      {{f.as_p}}
+      <input type="submit" value="ADD" style="color: red">
+    </form>
+</body>
+</html>

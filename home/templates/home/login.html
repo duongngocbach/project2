@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <div class="login" >
+        {% if f %}
+            <h3 style="color: red">{{f}}</h3>
+        {% endif %}
+        <form action="{% url 'home:login' %}" method="post">
+            {% csrf_token %}
+            <label for="username">Tên đăng nhập:</label><br>
+            <input type="text" name="username"><br>
+            <label for="password">Mật khẩu:</label><br>
+            <input type="password" name="password"><br><br>
+            <input type="submit" value="Đăng nhập">
+        </form>
+    </div>
+</body>
+</html>

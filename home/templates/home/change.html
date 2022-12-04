@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="{% url 'home:content_detail' data.id %}" method="post">
+        {% csrf_token %}
+        Ip: <input type="text" name="ip" value="{{data.ip}}"><br>
+        Hostname: <input type="text" name="hostname" value="{{data.hostname}}"><br>
+        Branch: <input type="text" name="branch" value="{{data.branch}}"><br>
+        Zone: <input type="text" name="zone" value="{{data.zone}}"><br>
+        Pop: <input type="text" name="pop" value="{{data.pop}}"><br>
+        Type: <input type="text" name="type" value="{{data.type}}"><br>
+        Function: <input type="text" name="function" value="{{data.function}}"><br>
+        Model: <input type="text" name="model" value="{{data.model}}"><br>
+        Province: <input type="text" name="province" value="{{data.province}}"><br>
+        Total mac: <input type="text" name="total_mac" value="{{data.total_mac}}"><br>
+        Smart link: <input type="text" name="smart_link" value="{{data.smart_link}}"><br>
+        Sep: <input type="text" name="sep" value="{{data.sep}}"><br>
+        Stack: <input type="text" name="stack" value="{{data.stack}}"><br>
+        Number of pop tail: <input type="text" name="number_of_pop_tail" value="{{data.number_of_pop_tail}}"><br>
+        Patch ver: <input type="text" name="patch_ver" value="{{data.patch_ver}}"><br>
+        Patch state: <input type="text" name="patch_state" value="{{data.patch_state}}"><br>
+        Software ver: <input type="text" name="software_ver" value="{{data.software_ver}}"><br>
+        Switch type: <input type="text" name="switch_type" value="{{data.switch_type}}"><br>
+        <br>
+        <input type="submit" value="Change" style="color: red">
+    </form>
+</body>
+</html>
