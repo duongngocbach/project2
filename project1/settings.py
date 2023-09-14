@@ -180,8 +180,8 @@ CELERY_TIMEZONE = 'Asia/Ho_Chi_Minh'
 
 CELERY_BEAT_SCHEDULE = {
     "scheduled_task": {
-        "task": "home.tasks.add",
-        "schedule": 5.0,
-        "args": (10, 10),
+        "task": "home.tasks.send_email",
+        "schedule": crontab(),
+        # "args": (10, 10),
     },
 }
